@@ -8,7 +8,7 @@ $(function() {
     var $enter = $(".enter__enter", $element);
     var $exit = $(".enter__exit", $element);
 
-    var login = data.__wrapped__.user.name;
+    var login = data.__wrapped__.user.login;
     var password = data.__wrapped__.user.password;
 
     var $login = $(".enter__input.enter__login", $element);
