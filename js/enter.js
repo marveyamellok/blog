@@ -30,10 +30,13 @@ $(function() {
     }
 
     $($btnEnter).on("click", function(){
-      console.log("enter 3")
+      console.log("enter 3");
+      console.log(data);
       data.__wrapped__.count = 1;
+      console.log(data.__wrapped__.count);
       var userLogin = $($login).val();
       var userPassword = $($password).val();
+      console.log(userLogin, userPassword);
       if ( userLogin == login && userPassword == password ){
         data.get('__wrapped__').find({ count: '0' }).assign({ count: '1'}).write();
         logIn(userLogin);
