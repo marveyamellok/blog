@@ -8,7 +8,7 @@ $(function() {
     var $enter = $(".enter__enter", $element);
     var $exit = $(".enter__exit", $element);
 
-    var login = data.__wrapped__.user.login;
+    var name = data.__wrapped__.user.login;
     var password = data.__wrapped__.user.password;
 
     var $login = $(".enter__input.enter__login", $element);
@@ -24,7 +24,7 @@ $(function() {
     var $greet = $(".greeting");
 
     if (data.__wrapped__.count == 1){
-      logIn(login);
+      logIn(name);
     } else {
       logOut();
     }
@@ -35,10 +35,10 @@ $(function() {
       var userLogin = $($login).val();
       var userPassword = $($password).val();
       console.log("userLogin: ", userLogin );
-      console.log("login: ", login );
+      console.log("login: ", name );
       console.log("userPassword: ", userPassword );
       console.log("login: ", password );
-      if ( userLogin == login && userPassword == password ){
+      if ( userLogin == name && userPassword == password ){
         console.log("yes");
         data.get('__wrapped__').find({ count: '0' }).assign({ count: '1'}).write();
         logIn(userLogin);
@@ -53,7 +53,7 @@ $(function() {
       logOut();
     });
 
-    function logIn(login){
+    function logIn(name){
       console.log($enter);
       console.log($exit);
       console.log($(".new-post"))
@@ -61,7 +61,7 @@ $(function() {
       $($exit).css({"opacity": 1, "pointer-events":"all"});
       $($login).val("");
       $($password).val("");
-      $(".enter__exit-name").html(login)
+      $(".enter__exit-name").html(name)
       $(".new-post").show();
       $($editGreatButton).show();
       $($greet).show();
