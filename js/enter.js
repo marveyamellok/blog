@@ -34,10 +34,16 @@ $(function() {
       data.__wrapped__.count = 1;
       var userLogin = $($login).val();
       var userPassword = $($password).val();
+      console.log("userLogin: ", userLogin );
+      console.log("login: ", login );
+      console.log("userPassword: ", userPassword );
+      console.log("login: ", password );
       if ( userLogin == login && userPassword == password ){
         console.log("yes");
         data.get('__wrapped__').find({ count: '0' }).assign({ count: '1'}).write();
         logIn(userLogin);
+      } else {
+        alert("Wrong password!")
       }
     });
 
