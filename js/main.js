@@ -1,4 +1,6 @@
 $(function() {
+
+  console.log("first")
   // var data;
   // $.getJSON('data/data.json', function(_data){
     // data = _data;
@@ -9,7 +11,9 @@ $(function() {
     data.defaults({ posts: [], user: {login:"MarveyaMellok", password: "123"}, count: 0, greet: {title: "Welcome to this blog", color: "green", visible: true} })
       .write();
 
-    // $(window).trigger( "main:ready", data );
+      console.log(data)
+
+    $(window).trigger( "main:ready", data );
 
   // });
 
