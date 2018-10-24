@@ -31,13 +31,11 @@ $(function() {
 
     $($btnEnter).on("click", function(){
       console.log("enter 3");
-      console.log(data);
       data.__wrapped__.count = 1;
-      console.log(data.__wrapped__.count);
       var userLogin = $($login).val();
       var userPassword = $($password).val();
-      console.log(userLogin, userPassword);
       if ( userLogin == login && userPassword == password ){
+        console.log("yes");
         data.get('__wrapped__').find({ count: '0' }).assign({ count: '1'}).write();
         logIn(userLogin);
       }
@@ -50,6 +48,9 @@ $(function() {
     });
 
     function logIn(login){
+      console.log($enter);
+      console.log($exit);
+      console.log($(".new-post"))
       $($enter).css({"opacity": 0, "pointer-events":"none"});
       $($exit).css({"opacity": 1, "pointer-events":"all"});
       $($login).val("");
