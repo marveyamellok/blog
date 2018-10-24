@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Striped by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!-- <script src="js/jquery.min.js"></script> -->
+		<script src="js/jquery-2.2.4.min.js"></script> 
+		<!-- <script src="js/lodash.js"></script> -->
+		<script src="https://unpkg.com/lodash@4/lodash.min.js"></script>
+		<script src="https://unpkg.com/lowdb@0.17/dist/low.min.js"></script>
+		<script src="https://unpkg.com/lowdb@0.17/dist/LocalStorage.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<!-- <script src="js/skel-layers.min.js"></script> -->
+		<script src="js/init.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/enter.js"></script>
+		<script src="js/new-post.js"></script>
+		<script src="js/greetEdit.js"></script>
+		<script src="js/handlebars-v4.0.12.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+		<!-- <script src="js/navigo.min.js"></script> -->
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="css/new-post.css" />
+		</noscript>
+	</head>
+	<body class="left-sidebar">
+			<div id="wrapper">
+					<div class="enter">
+						<div class="enter__enter">
+							<div class="enter__item">
+								<label class="enter__label">Login</label>
+								<input type="text" class="enter__input enter__login">
+							</div>
+							<div class="enter__item">
+								<label class="enter__label">Password</label>
+								<input type="password" class="enter__input enter__password">
+							</div>
+							<button class="enter__button">Enter</button>
+						</div>
+						<div class="enter__exit">
+							<div class="enter__exit-text">Welcome, <div class="enter__exit-name"></div> !</div>
+							<button class="enter__exit-button">Exit</button>
+						</div>
+					</div>
+
+					<div id="sidebar">
+
+							<h1 id="logo"><a href="#">STRIPED</a></h1>
+					
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="#">Latest Post</a></li>
+									<li><a href="#">Archives</a></li>
+									<li><a href="#">About Me</a></li>
+									<li><a href="#">Contact Me</a></li>
+								</ul>
+							</nav>
+
+						<!-- Search -->
+							<section class="box search">
+								<form method="post" action="#">
+									<input type="text" class="text" name="search" placeholder="Search" />
+								</form>
+							</section>
+					
+						<!-- Text -->
+							<section class="box text-style1">
+								<div class="inner">
+									<p>
+										<strong>Striped:</strong> A free and fully responsive HTML5 site
+										template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
+									</p>
+								</div>
+							</section>
+					
+						<!-- Recent Posts -->
+							<section class="box recent-posts">
+								<header>
+									<h2>Recent Posts</h2>
+								</header>
+								<div class="recentPosts-container">
+									<ul class="recentPosts">
+										<!-- <li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Feugiat nisl aliquam</a></li>
+										<li><a href="#">Sed dolore magna</a></li>
+										<li><a href="#">Malesuada commodo</a></li>
+										<li><a href="#">Ipsum metus nullam</a></li> -->
+									</ul>
+								</div>
+							</section>
+					
+						<!-- Recent Comments -->
+							<section class="box recent-comments">
+								<header>
+									<h2>Recent Comments</h2>
+								</header>
+								<ul>
+									<li>case on <a href="#">Lorem ipsum dolor</a></li>
+									<li>molly on <a href="#">Sed dolore magna</a></li>
+									<li>case on <a href="#">Sed dolore magna</a></li>
+								</ul>
+							</section>
+						
+						<!-- Copyright -->
+							<ul id="copyright">
+								<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+
+					</div>
+					<div id="content">
+						<div class="new-post">
+							<div class="new-post__block-title">Let's Create A New Post!</div>
+							<input type="text" class="new-post__title" placeholder="Write a title for your new post">
+							<input type="text" class="new-post__subtitle" placeholder="Write a subtitle for your new post">
+							<textarea class="new-post__text" placeholder="Write your new post"></textarea>
+							<div class="new-post__buttons">
+								<input type="text" class="new-post__pic-arrd" placeholder="Write a picture url">
+								<!-- <button class="new-post__picture">Add picture</button>	 -->
+								<input type="submit" class="new-post__picture">Add picture</input>	
+							</div>
+							<button class="new-post__publ-btn">Publicate</button>
+						</div>
+						<div class="greeting">
+							<div class="greating__main">
+								<div class="greeting__text">Welcome to this blog!</div>
+							</div>
+							<input type="checkbox" id="greet">
+							<label for="greet">
+								<div class="greeting__button"></div>
+							</label>
+							<div class="greeting__editing">
+									<input type="text" class="greeting__editing-input">
+									<input type="color" class="greeting__editing-color">
+									<div class="greeting__visible">
+										<input type="checkbox" id="greetVisible" checked="checked">
+										<div class="greeting__visible-text">Show greeting messege</div>
+									</div>
+									<div class="greeting__editing-save-block"><button class="greeting__editing-save">Save</button></div>
+									
+								</div>
+						</div>
+						<div class="inner inner__content">
+					</div>
+			</div>
+	</body>
+</html>

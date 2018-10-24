@@ -1,0 +1,622 @@
+/*
+	Striped by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body
+	{
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	body,input,textarea,select
+	{
+		line-height: 1.75em;
+	}
+
+	h2
+	{
+		font-size: 1.2em;
+	}
+
+	h3, h4, h5, h6
+	{
+		font-size: 1em;
+	}
+
+	/* Button */
+
+		input[type="button"],
+		input[type="submit"],
+		input[type="reset"],
+		.button
+		{
+			display: inline-block;
+			padding: 0.5em 2em 0.5em 2em;
+		}
+		
+			input[type="button"].small,
+			input[type="submit"].small,
+			input[type="reset"].small,
+			.button.small
+			{
+				font-size: 0.85em;
+				padding: 0.35em 1.5em 0.35em 1.5em;
+			}
+		
+			input[type="button"].big,
+			input[type="submit"].big,
+			input[type="reset"].big,
+			.button.big
+			{
+				font-size: 1.25em;
+				padding: 0.75em 2em 0.75em 2em;
+			}
+		
+			input[type="button"].huge,
+			input[type="submit"].huge,
+			input[type="reset"].huge,
+			.button.huge
+			{
+				font-size: 1.5em;
+				padding: 0.75em 2em 0.75em 2em;
+			}
+
+	/* Pagination */
+
+		.pagination
+		{
+			padding: 3em 0 0 0;
+		}
+
+			.pagination .pages
+			{
+			}
+
+			.pagination .previous
+			{
+				margin-right: 0.6em;
+			}
+
+			.pagination .next
+			{
+				margin-left: 0.2em;
+			}
+
+			.pagination .pages a
+			{
+				width: 2.75em;
+				height: 2.75em;
+				line-height: 2.75em;
+			}
+			
+			.pagination .button
+			{
+				height: 2.75em;
+				padding-top: 0;
+				padding-bottom: 0;
+				line-height: 2.75em;
+			}
+
+	/* Box */
+
+		.box
+		{
+		}
+
+			.box.post
+			{
+			}
+
+				.box.post .info
+				{
+				}
+
+					.box.post .info .stats
+					{
+					}
+					
+						.box.post .info .stats li a
+						{
+							border-radius: 0.4em;
+							opacity: 0.5;
+							-moz-transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+							-webkit-transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+							-o-transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+							-ms-transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+							transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+						}
+
+							.box.post .info .stats li:hover a
+							{
+								background-color: #f4f4f4;
+								opacity: 1.0;
+							}
+		
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+	#logo
+	{
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 2em;
+		letter-spacing: 0.1em;
+	}
+	
+		#logo a
+		{
+			display: block;
+			background-color: #c94663;
+			background-image: url('images/bg01.png');
+			padding: 0.875em 0.25em;
+			border-radius: 0.2em;
+			text-align: center;
+			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+			text-decoration: none;
+			color: #fff;
+		}
+
+/*********************************************************************************/
+/* Content                                                                       */
+/*********************************************************************************/
+		
+	#content
+	{
+		box-shadow: 0 0 0.25em 0em rgba(0,0,0,0.25);
+	}
+
+		#content > .inner
+		{
+			/*
+				This sets an upper limit on your page content to prevent it
+				from looking insane on really wide displays. It's currently set
+				to the width of the sample post images, but you can change it to
+				whatever you like (or remove it entirely).
+			*/
+			max-width: 1038px;
+			padding-bottom: 2em;
+		}
+
+/*********************************************************************************/
+/* Sidebar                                                                       */
+/*********************************************************************************/
+		
+	#sidebar
+	{
+		position: absolute;
+		top: 0;
+		padding: 3em 1.35em 1em 1.15em;
+		width: 14em; /* = whatever you want */
+		background: #364050 url('images/bg01.png');
+		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);
+	}
+
+		body.left-sidebar #sidebar
+		{
+			left: 0;
+		}
+	
+		body.right-sidebar #sidebar
+		{
+			right: 0;
+		}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright
+	{
+		margin: 2em 0 0 0;
+		text-align: center;
+	}
+
+		#copyright p
+		{
+			font-size: 0.8em;
+			line-height: 2em;
+		}
+	
+		#copyright:before
+		{
+			height: 0.5em;
+			margin: 0 0 2em 0;
+		}
+
+
+
+.new-post{
+	padding: 30px 20px;
+  width: 100%;
+	box-shadow: 0px -1px 20px 1px black;
+	border-radius: 10px;
+	margin-bottom: 35px;
+	display: none;
+}
+.new-post__text,
+.new-post__subtitle,
+.new-post__title{
+	width: 100%;
+	margin-bottom: 30px;
+	padding: 5px 15px;
+}
+.new-post__text{
+	height: 200px;
+	resize: none;
+}
+
+.new-post__block-title{
+	text-align: center;
+	font-size: 3.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	text-decoration: none;
+	color: inherit;
+	margin-bottom: 40px;    
+}
+
+.new-post__publ-btn{
+	padding: 10px 50px;
+	font-size: 1.7rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.new-post__buttons{
+	padding-bottom: 20px;
+}
+
+.new-post__picture{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 20px;
+	font-size: 1.2rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: green;
+}
+
+.new-post__pic-arrd{
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	padding: 5px 15px;
+	margin-right: 22px;
+}
+
+.post__icon{
+	border-radius: 0.4em;
+  opacity: 0.5;
+  transition: opacity .25s ease-in-out, background-color .25s ease-in-out;    
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #232323;
+  font-weight: 700;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.post__likes:before,
+.post__comments:before{
+	position: relative;
+  width: 1.75em;
+  text-align: center;
+  margin-right: 0.35em;
+  opacity: 0.35;
+	-webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important;
+	
+}
+
+.post__comments:before{
+	content: "\f075";
+}
+
+.post__likes:before{
+	content: "\f004";
+
+}
+
+.box.post .info .stats li:hover .post__icon {
+  background-color: #f4f4f4;
+  opacity: 1.0;
+}
+
+#wrapper{
+	overflow: auto;
+  height: 100vh;
+}
+
+#sidebar,
+#content{
+	height: auto!important;
+	min-height: 0!important
+}
+
+.recentPosts-container{
+	position: relative;
+	height: 192px;
+  overflow: hidden;
+}
+
+.recentPosts{
+	position: absolute;
+  top: 0;
+}
+
+.openFullButton,
+.closeFullButton{
+	width: 100px;
+	text-align: center;
+	border-bottom: 2px solid gray;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+
+.post__text{
+	max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 3em;
+  transition: height 0.3s;
+}
+.closeFullButton{
+	position: absolute;
+  bottom: 0px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enter{
+	width: 81.7%;
+	height: 5em;
+	margin-left: auto;
+  padding: 10px;
+  text-align: right;
+
+}
+
+.enter__label,
+.enter__input{
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+}
+
+.enter__label{
+	position: absolute;
+	top: -3px;
+  left: 8px;
+}
+  
+.enter__input{
+	width: 120px;
+  height: 27px;
+  padding: 10px;
+  box-sizing: border-box;
+}  
+
+.enter__item{
+	position: relative;
+	display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;	
+  vertical-align: top;
+	margin: 0 10px;
+}
+
+
+.enter__exit-button,
+.enter__button{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100px;
+	height: 40px;
+	margin-top: 6px;
+	border-radius: 10px;
+	border: 2px solid gray;
+
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	cursor: pointer;
+}
+
+.enter__enter,
+.enter__exit{
+	transition: opacity 0.3s;
+}
+
+.enter__enter{
+	height: 100%;
+}
+
+.enter__exit{
+	position: absolute;
+	right: 10px;
+  top: 10px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.enter__exit-text{
+	display: inline-block;
+  vertical-align: middle;
+  margin-right: 50px;
+	font-size: 3.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+}
+
+.enter__exit-name{
+	display: inline-block;
+	color: green;
+}
+
+.post__delete{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 2px solid black;
+	cursor: pointer;
+	transition:  transform 0.3s, background-color 0.3s;
+}
+
+.post__delete:hover{
+	transform: scale(1.2);
+}
+
+.post__delete:active{
+	background-color: #b9a988;
+}
+
+.post__number{
+	display: inline-block;
+  position: absolute;
+  top: 38px;
+  right: 107px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: 700;
+}
+
+.greeting{
+	position: relative;
+	width: 100%;
+	box-shadow: 0px -1px 20px 1px black;
+	border-radius: 38px 15px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+	padding: 35px 15px;
+}
+
+.greeting__text{
+	font-size: 3.5em;
+	color: green;
+	text-align: center;
+}
+
+.greeting__button{
+	position: absolute;
+  top: 25px;
+  right: 25px;
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	background: url("https://vignette.wikia.nocookie.net/clubpenguin/images/0/04/800px-InterfaceTools.svg.png/revision/latest/scale-to-width-down/480?cb=20120929194413") no-repeat center;
+	background-size: 80%;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s; 
+}
+
+.greeting__button:active{
+	background-color: #000000;
+}
+
+.greeting__button:hover{
+	transform: scale(1.2);
+}
+
+.greeting__editing{
+	padding-top: 35px;
+	/*text-align: center;*/
+
+	display: none;
+}
+
+.greeting__editing-input{
+	width: 90%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.greeting__editing-save{
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	transition: background-color 0.3s, transform 0.3s; 
+	cursor: pointer;
+}
+
+.greeting__editing-save:active{
+	background-color: #929396;
+}
+
+.greeting__editing-save:hover{
+	transform: scale(1.2);
+}
+		
+#greet{
+	display: none;
+}
+
+#greet:checked ~ .greeting__editing{
+	display: block;
+}
+
+.greeting__editing-input,
+.greeting__editing-color{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.greeting__editing-color{
+	height: 38px;
+  margin-left: 30px;
+}
+
+.greeting__editing-save-block{
+	text-align: center;
+}
+
+#greetVisible,
+.greeting__visible-text{
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+#greetVisible{
+
+}
+
+.greeting__visible-text{
+	margin-left: 15px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+}
