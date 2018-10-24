@@ -1,6 +1,6 @@
 $(function() {
   // var data;
-  $.getJSON('data/data.json', function(_data){
+  // $.getJSON('data/data.json', function(_data){
     // data = _data;
     // var adapter = new FileSync('data.json')
     var adapter = new LocalStorage('data');
@@ -9,9 +9,9 @@ $(function() {
     data.defaults({ posts: [], user: {login:"MarveyaMellok", password: "123"}, count: 0, greet: {title: "Welcome to this blog", color: "green", visible: true} })
       .write();
 
-    $(window).trigger( "main:ready", data );
+    // $(window).trigger( "main:ready", data );
 
-  });
+  // });
 
 
 });
