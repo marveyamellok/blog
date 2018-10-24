@@ -1,6 +1,7 @@
 $(function() {
   var data;
   $(window).on( "main:ready", function(e, _data){
+    console.log("main:ready")
     data = _data;
 
     var $editGreat = $(".greeting__editing");
@@ -18,6 +19,7 @@ $(function() {
     $($textBlock).css({"color":dataColor});
 
     $(".greeting__editing-save").on("click", function(){
+      console.log("enter pressed");
       var newGreeting = $($input).val();
       var newColor = $($color).val();
       var newVisible = $($inputVisible).prop( "checked" );
