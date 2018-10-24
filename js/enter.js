@@ -1,6 +1,8 @@
 $(function() {
   var data;
+  console.log("enter 1")
   $(window).on( "main:ready", function(e, _data){
+    console.log("enter 2")
     data = _data;
     var $element = $(".enter");
     var $enter = $(".enter__enter", $element);
@@ -28,6 +30,7 @@ $(function() {
     }
 
     $($btnEnter).on("click", function(){
+      console.log("enter 3")
       data.__wrapped__.count = 1;
       var userLogin = $($login).val();
       var userPassword = $($password).val();
