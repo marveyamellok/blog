@@ -620,3 +620,58 @@
 	color: #232323;
 	font-weight: bold;
 }
+.comments{
+
+	margin-bottom: 30px;
+	display: none;
+
+}
+
+.comments__item{
+	width: 100%;
+	height: auto;
+	padding: 15px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+	border-radius: 10px;
+	border: 2px solid gray;
+	margin-bottom: 20px;
+
+}
+
+.comments__text{
+	font-size: 2.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #556949;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.createComment{
+	width: 100%;
+	height: auto;
+	min-height: 100px;
+	max-height: 200px;
+	resize: none;
+}
+
+.sendComment{
+	margin-left: 30px;
+	padding: 5px 30px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #556949;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 2px solid #556949;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.sendComment:active{
+	background-color: #556949;
+}
+
+.sendComment:hover{
+	transform: scale(1.2);
+}
