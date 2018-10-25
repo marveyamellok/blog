@@ -1,8 +1,6 @@
 $(function() {
   var data;
-  console.log("enter 1")
   $(window).on( "main:ready", function(e, _data){
-    console.log("enter 2")
     data = _data;
     var $element = $(".enter");
     var $enter = $(".enter__enter", $element);
@@ -30,16 +28,10 @@ $(function() {
     }
 
     $($btnEnter).on("click", function(){
-      console.log("enter 3");
       data.__wrapped__.count = 1;
       var userLogin = $($login).val();
       var userPassword = $($password).val();
-      console.log("userLogin: ", userLogin );
-      console.log("login: ", name );
-      console.log("userPassword: ", userPassword );
-      console.log("login: ", password );
       if ( userLogin == name && userPassword == password ){
-        console.log("yes");
         data.get('__wrapped__').find({ count: '0' }).assign({ count: '1'}).write();
         logIn(userLogin);
       } else {
@@ -54,9 +46,6 @@ $(function() {
     });
 
     function logIn(name){
-      console.log($enter);
-      console.log($exit);
-      console.log($(".new-post"))
       $($enter).css({"opacity": 0, "pointer-events":"none"});
       $($exit).css({"opacity": 1, "pointer-events":"all"});
       $($login).val("");
