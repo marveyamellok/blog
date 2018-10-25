@@ -168,7 +168,7 @@
 		
 	#content
 	{
-		margin-top: 44px;
+		/*margin-top: 44px;*/
 		padding: 3em 20px 2em 20px;
 	}
 
@@ -178,6 +178,7 @@
 
 	#sidebar
 	{
+		display: none;
 		padding: 20px 12px 20px 10px;
 		box-shadow: inset -1px 0 0 0 rgba(255,255,255,0.15), inset -0.1em 0 0.5em 0 rgba(0,0,0,0.25);
 	}
@@ -203,3 +204,454 @@
 			height: 0.5em;
 			margin: 0 0 2em 0;
 		}
+.new-post{
+	padding: 30px 20px;
+  width: 100%;
+	box-shadow: 0px -1px 20px 1px black;
+	border-radius: 10px;
+	margin-bottom: 35px;
+	display: none;
+}
+.new-post__text,
+.new-post__subtitle,
+.new-post__title{
+	width: 100%;
+	margin-bottom: 30px;
+	padding: 5px 15px;
+}
+.new-post__text{
+	height: 200px;
+	resize: none;
+}
+
+.new-post__block-title{
+	text-align: center;
+	font-size: 3.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	text-decoration: none;
+	color: inherit;
+	margin-bottom: 40px;    
+}
+
+.new-post__publ-btn{
+	padding: 10px 50px;
+	font-size: 1.7rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.new-post__buttons{
+	padding-bottom: 20px;
+}
+
+.new-post__picture{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 20px;
+	font-size: 1.2rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: green;
+}
+
+.new-post__pic-arrd{
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	padding: 5px 15px;
+	margin-right: 22px;
+}
+
+.post__icon{
+	border-radius: 0.4em;
+  opacity: 0.5;
+  transition: opacity .25s ease-in-out, background-color .25s ease-in-out;    
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #232323;
+  font-weight: 700;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.post__likes:before,
+.post__comments:before{
+	position: relative;
+  width: 1.75em;
+  text-align: center;
+  margin-right: 0.35em;
+  opacity: 0.35;
+	-webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important;
+	
+}
+
+.post__comments:before{
+	content: "\f075";
+}
+
+.post__likes:before{
+	content: "\f004";
+
+}
+
+.box.post .info .stats li:hover .post__icon {
+  background-color: #f4f4f4;
+  opacity: 1.0;
+}
+
+#wrapper{
+	overflow: auto;
+  height: 100vh;
+}
+
+#sidebar,
+#content{
+	height: auto!important;
+	min-height: 0!important
+}
+
+.recentPosts-container{
+	position: relative;
+	height: 192px;
+  overflow: hidden;
+}
+
+.recentPosts{
+	position: absolute;
+  top: 0;
+}
+
+.openFullButton,
+.closeFullButton{
+	position: absolute;
+  bottom: 60px;
+	width: 100px;
+	text-align: center;
+	border-bottom: 2px solid gray;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+
+.post__text{
+	max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 3em;
+  transition: height 0.3s;
+}
+.closeFullButton{
+	/*position: absolute;*/
+  /*bottom: 0px;*/
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enter{
+	width: 100%;
+  height: 10em;
+	margin-left: auto;
+  padding: 10px;
+  text-align: right;
+
+}
+
+.enter__label,
+.enter__input{
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+}
+
+.enter__label{
+	position: absolute;
+	top: -3px;
+  left: 8px;
+}
+  
+.enter__input{
+	width: 120px;
+  height: 27px;
+  padding: 10px;
+  box-sizing: border-box;
+}  
+
+.enter__item{
+	position: relative;
+	display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;	
+  vertical-align: top;
+	margin: 0 10px;
+}
+
+
+.enter__exit-button,
+.enter__button{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100px;
+	height: 40px;
+	margin-top: 17px;
+  margin-right: 11px;
+	border-radius: 10px;
+	border: 2px solid gray;
+
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	cursor: pointer;
+}
+
+.enter__enter,
+.enter__exit{
+	transition: opacity 0.3s;
+}
+
+.enter__enter{
+	height: 50%;
+}
+
+.enter__exit{
+	position: absolute;
+	right: 10px;
+  top: 10px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.enter__exit-text{
+	display: inline-block;
+  vertical-align: middle;
+  margin-right: 50px;
+	font-size: 3.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+}
+
+.enter__exit-name{
+	display: inline-block;
+	color: green;
+}
+
+.post__delete{
+	position: absolute;
+	top: -1px;
+  right: 4px;
+	font-size: 1.2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 2px solid black;
+	cursor: pointer;
+	transition:  transform 0.3s, background-color 0.3s;
+}
+
+.post__delete:hover{
+	transform: scale(1.2);
+}
+
+.post__delete:active{
+	background-color: #b9a988;
+}
+
+.post__number{
+	display: inline-block;
+  position: absolute;
+  top: 38px;
+  right: 107px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: 700;
+	display: none;
+}
+
+.greeting{
+	position: relative;
+	width: 100%;
+	box-shadow: 0px -1px 20px 1px black;
+	border-radius: 38px 15px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+	padding: 35px 15px;
+}
+
+.greeting__text{
+	font-size: 1.9em;
+	color: green;
+	text-align: center;
+}
+
+.inner{
+	padding-top: 30px;
+}
+
+.greeting__button{
+	position: absolute;
+  top: 25px;
+  right: 25px;
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	background: url("https://vignette.wikia.nocookie.net/clubpenguin/images/0/04/800px-InterfaceTools.svg.png/revision/latest/scale-to-width-down/480?cb=20120929194413") no-repeat center;
+	background-size: 80%;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s; 
+}
+
+.greeting__button:active{
+	background-color: #000000;
+}
+
+.greeting__button:hover{
+	transform: scale(1.2);
+}
+
+.greeting__editing{
+	padding-top: 35px;
+	/*text-align: center;*/
+
+	display: none;
+}
+
+.greeting__editing-input{
+	width: 90%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.greeting__editing-save{
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 2px solid gray;
+	transition: background-color 0.3s, transform 0.3s; 
+	cursor: pointer;
+}
+
+.greeting__editing-save:active{
+	background-color: #929396;
+}
+
+.greeting__editing-save:hover{
+	transform: scale(1.2);
+}
+		
+#greet{
+	display: none;
+}
+
+#greet:checked ~ .greeting__editing{
+	display: block;
+}
+
+.greeting__editing-input,
+.greeting__editing-color{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.greeting__editing-color{
+	height: 38px;
+  margin-left: 30px;
+}
+
+.greeting__editing-save-block{
+	text-align: center;
+}
+
+#greetVisible,
+.greeting__visible-text{
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+#greetVisible{
+
+}
+
+.greeting__visible-text{
+	margin-left: 15px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+}
+.comments{
+
+	margin-bottom: 30px;
+	display: none;
+
+}
+
+.comments__item{
+	width: 100%;
+	height: auto;
+	padding: 15px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #232323;
+	font-weight: bold;
+	border-radius: 10px;
+	border: 2px solid gray;
+	margin-bottom: 20px;
+
+}
+
+.comments__text{
+	font-size: 2.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #556949;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.createComment{
+	width: 100%;
+	height: auto;
+	min-height: 100px;
+	max-height: 200px;
+	resize: none;
+}
+
+.sendComment{
+	margin-left: 30px;
+	padding: 5px 30px;
+	font-size: 1.3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #556949;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 2px solid #556949;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.sendComment:active{
+	background-color: #556949;
+}
+
+.sendComment:hover{
+	transform: scale(1.2);
+}
