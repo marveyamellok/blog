@@ -94,7 +94,6 @@ $(function() {
       var j = content.length - 1;
 
       createPosts(content[j].title, content[j].subtitle, content[j].text, content[j].date, content[j].likes, content[j].num, content[j].comments);
-      // $(".comments").hide();
 
       $likesButton = $(".post__icon.post__likes");
       $deleteButton = $(".post__delete");
@@ -221,6 +220,11 @@ $(function() {
 
         if (thisText == "") return; 
         var newComment = $('<div class="comments__item">' + thisText + '<div class="deleteComment></div>').prependTo($containter);
+        var thisHeight = $(newComment).outerHeight(true);
+        var $postText = $(".post__text", $mainParent);
+        var postHeight = $($postText).outerHeight(true);
+        $($postText).css({"height": postHeight + thisHeight})
+        console.log(thisHeight, postHeight)
 
         var com = {
           text: thisText
