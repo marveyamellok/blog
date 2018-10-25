@@ -16,7 +16,7 @@ $(function() {
     if (data.__wrapped__.posts != 0){
       var dataContent = data.__wrapped__.posts;
       for (var i = 0; i < dataContent.length; i++){
-        createPosts(dataContent[i].title, dataContent[i].subtitle, dataContent[i].text, dataContent[i].date, dataContent[i].likes, dataContent[i].num);
+        createPosts(dataContent[i].title, dataContent[i].subtitle, dataContent[i].text, dataContent[i].date, dataContent[i].likes, dataContent[i].num, dataContent[i].comments);
       }
     }
 
@@ -36,6 +36,7 @@ $(function() {
       like($likesButton);
       openPost($openButton);
       closePost($closeButton);
+      makeComment()
     }
 
     $(".new-post__publ-btn").on("click", function(){
@@ -80,7 +81,8 @@ $(function() {
         subtitle: newSubtitle,
         text: newText, 
         date: newDate, 
-        likes: countLikes 
+        likes: countLikes, 
+        comments: [] 
       };
 
       content.push(context);
@@ -91,12 +93,13 @@ $(function() {
 
       var j = content.length - 1;
 
-      createPosts(content[j].title, content[j].subtitle, content[j].text, content[j].date, content[j].likes, content[j].num)
+      createPosts(content[j].title, content[j].subtitle, content[j].text, content[j].date, content[j].likes, content[j].num, content[j].comments);
+      // $(".comments").hide();
+
       $likesButton = $(".post__icon.post__likes");
       $deleteButton = $(".post__delete");
       $openButton = $(".openFullButton");
       $closeButton = $(".closeFullButton");
-      console.log($openButton, $closeButton);
       countLikes++;
       $(window).trigger( "post:like", $likesButton);
       $(window).trigger( "post:delete", $deleteButton);
@@ -104,13 +107,14 @@ $(function() {
       $(window).trigger( "post:open", $openButton);
       $(window).trigger( "post:close", $closeButton);
 
+      makeComment()
     });
 
     $(".new-post__picture").on("click", function(){
       var writeEarly = $(".new-post__text").val();
       var image = writeEarly + '<br><img class="image featured" src="' + $(".new-post__pic-arrd").val() + '""><br>';
       $(".new-post__text").val(image);
-    })
+    });
 
 
     //////////////////////////////////при срабатывании события///////////////////////////////////////////////////////////////////
@@ -156,10 +160,14 @@ $(function() {
 
     function openPost(open){
       $(open).on("click", function(){
-        var parent = $(this).parent();
-        var thisClose = $(parent).find(".closeFullButton")
-        var $tBlock = $(".post__text", parent);
-        var height = $(".post__text-content", parent).css( "height");
+        var $parent = $(this).parent();
+        var thisClose = $($parent).find(".closeFullButton")
+        var $tBlock = $(".post__text", $parent);
+        var heightText = $(".post__text-content", $parent).height();
+        var heightComments = $(".comments", $parent).height();
+        var heightOpenBtn = $(".openFullButton", $parent).height();
+        var height = heightText + heightComments + heightOpenBtn;
+        $(".comments", $parent).show();
         $tBlock.css({"maxHeight":"none", "height": height});
         $(this).css({"opacity":"0", "pointerEvents":"none"});
         $(thisClose).css({"opacity" : "1", "pointerEvents" : "all"});
@@ -168,12 +176,13 @@ $(function() {
 
     function closePost(close){
       $(close).on("click", function(){
-        var parent = $(this).parent();
-        var thisOpen = $(parent).find(".openFullButton");
-        var $tBlock = $(".post__text", parent);
-        $tBlock.css({"height": "auto;", "maxHeight":"400px"});
+        var $parent = $(this).parent();
+        var thisOpen = $($parent).find(".openFullButton");
+        var $tBlock = $(".post__text", $parent);
+        $tBlock.css({"height": "auto", "maxHeight":"400px"});
         $(this).css({"opacity":"0", "pointerEvents":"none"});
         $(thisOpen).css({"opacity" : "1", "pointerEvents" : "all"});
+        $(".comments", $parent).hide();
       })  
     }
 
@@ -181,14 +190,75 @@ $(function() {
     function like(newButtons){
       $(newButtons).on("click", function(event){
         event.preventDefault()
-        $(this).html(Number($(this).html()) + 1);
-        content.likes = Number($(this).html()) + 1;
+        var parent = $(this).parent().parent().parent().parent();
+        var number = $(".post__number", parent).html();
+        var count = Number($(this).html()) + 1;
+        var post = data.__wrapped__.posts[number - 1];
+
+        var newNum = post.num;
+        var newTitle = post.title;
+        var newSubtitle = post.subtitle;
+        var newText = post.text;
+        var newDate = post.date;
+        var countLikes = post.likes;
+
+        data.__wrapped__.posts[number - 1].likes = count;
+        data.get('posts')
+            .find({num: newNum, title: newTitle, subtitle: newSubtitle, text: newText, date: newDate, likes: countLikes})
+            .assign({num: newNum, title: newTitle, subtitle: newSubtitle, text: newText, date: newDate, likes: count})
+            .write();
+        $(this).html(count);
       })
     }
 
-    function createPosts(title, subtitle, text, date, likes, num){
-      var newPost = $('<article class="box post post-excerpt"><div class="post__number">' + num + '</div><div class="post__delete">Delete</div><header><h2><a href="' + title +'" class="post__title">' + title + '</a></h2><p class="post__subtitle">' + subtitle + '</p></header><div class="info"><span class="date">' + date + '</span><ul class="stats"><li><div class="post__icon post__comments">0</div></li><li><div class="post__icon post__likes">' + likes + '</div></li></ul></div><div class="post__text"><p class="post__text-content">' + text + '</p></div><div class="openFullButton">Open Full</div><div class="closeFullButton">Close Full</div></article>').prependTo(".inner.inner__content");
+    function makeComment(){
+      $(".sendComment").on("click", function(){
+        var $parent = $(this).parent();
+        var $mainParent = $(this).parent().parent().parent().parent();
+        var $containter = $(".comments__block", $mainParent)
+        var number = $(".post__number", $mainParent).html();
+        var thisText = $(".createComment", $parent).val();
+
+        if (thisText == "") return; 
+        var newComment = $('<div class="comments__item">' + thisText + '<div class="deleteComment></div>').prependTo($containter);
+
+        var com = {
+          text: thisText
+        };
+
+        var post = data.__wrapped__.posts[number - 1].comments;
+        var newNum = post.num;
+        var newTitle = post.title;
+        var newSubtitle = post.subtitle;
+        var newText = post.text;
+        var newDate = post.date;
+        var countLikes = post.likes;
+        var newComments = post.comments;
+
+        var arr = data.__wrapped__.posts[number - 1].comments;
+        arr.push(com);
+
+        data.get('posts')
+          .find({num: newNum, title: newTitle, subtitle: newSubtitle, text: newText, date: newDate, likes: countLikes, comments: newComments})
+          .assign({num: newNum, title: newTitle, subtitle: newSubtitle, text: newText, date: newDate, likes: countLikes, comments: com})
+          .write()
+
+        $($(".createComment", $parent)).val("")
+      })
+    }
+
+    function createPosts(title, subtitle, text, date, likes, num, comments){
+      var comms = "";
+
+      for (var i = 0; i < comments.length; i++){
+        var j  = comments.length - i - 1;
+        var newComm = '<div class="comments__item">' + comments[j].text + '</div>';
+        comms += newComm;
+      }
+
+      var newPost = $('<article class="box post post-excerpt"><div class="post__number">' + num + '</div><div class="post__delete">Delete</div><header><h2><a href="' + title +'" class="post__title">' + title + '</a></h2><p class="post__subtitle">' + subtitle + '</p></header><div class="info"><span class="date">' + date + '</span><ul class="stats"><li><div class="post__icon post__comments">0</div></li><li><div class="post__icon post__likes">' + likes + '</div></li></ul></div><div class="post__text"><p class="post__text-content">' + text + '</p><div class="comments"><div class="comments__text">Comments</div><div class="comments__block">' + comms + '</div><div class="comment__new"><div class="comments__text">Leave a comment</div><textarea class="createComment"></textarea><button class="sendComment">Send</button></div></div></div><div class="openFullButton">Open Full</div><div class="closeFullButton">Close Full</div></article>').prependTo(".inner.inner__content");
       var resentPost = $('<li><a href="' + title + '">' + title + '</a></li>').prependTo(".recentPosts");
+      
     }
 
   });
