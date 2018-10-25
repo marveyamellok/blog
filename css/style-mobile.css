@@ -225,14 +225,15 @@
 }
 
 .new-post__block-title{
-	text-align: center;
-	font-size: 3.2em;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: 700;
-	color: #232323;
-	text-decoration: none;
-	color: inherit;
-	margin-bottom: 40px;    
+  text-align: center;
+  font-size: 2em;
+  padding: 0 1.5em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  color: #232323;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 40px;   
 }
 
 .new-post__publ-btn{
@@ -268,6 +269,7 @@
 	width: 80%;
 	padding: 5px 15px;
 	margin-right: 22px;
+	margin-bottom: 20px;
 }
 
 .post__icon{
@@ -438,11 +440,12 @@
 .enter__exit-text{
 	display: inline-block;
   vertical-align: middle;
-  margin-right: 50px;
-	font-size: 3.2em;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: 700;
-	color: #232323;
+  margin-right: 0;
+  font-size: 2.2em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  color: #232323;
+  text-align: center;
 }
 
 .enter__exit-name{
@@ -507,10 +510,10 @@
 
 .greeting__button{
 	position: absolute;
-  top: 25px;
-  right: 25px;
-	width: 30px;
-	height: 30px;
+  top: 10px;
+  right: 12px;
+  width: 25px;
+  height: 25px;
 	border-radius: 5px;
 	border: 2px solid gray;
 	background: url("https://vignette.wikia.nocookie.net/clubpenguin/images/0/04/800px-InterfaceTools.svg.png/revision/latest/scale-to-width-down/480?cb=20120929194413") no-repeat center;
